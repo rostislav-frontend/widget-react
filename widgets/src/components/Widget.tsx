@@ -1,6 +1,7 @@
 import { format } from "date-fns"
 import { useEffect, useRef, useState } from "react"
-
+import styles from "./Widget.module.scss"
+import refreshIcon from "../icons/refresh.svg"
 export default function Widget() {
 
     let timerRef = useRef<NodeJS.Timeout>()
@@ -27,10 +28,11 @@ export default function Widget() {
     }, []);
     
   return (
-    <section className="widget-wrapper">
-        <div className="widget-time">
-            <div><h1>Местное время:</h1></div>
-            <div>{format(date, "HH:mm")}</div>
+    <section className={styles.wrapper}>
+        <div>        </div>
+        <div className={styles.time}>
+            <div className={styles.timeTitle}><h1><b>Местное</b> время:</h1><img src={refreshIcon} alt="" /></div>
+            <div className={styles.timeDate}>{format(date, "HH:mm")}</div>
         </div>
         <div className="widget-course">
             <div>USD</div>

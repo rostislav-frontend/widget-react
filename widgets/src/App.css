@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400;500;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("normalize.css"); /* Using a url */ 
+
 body {
     background: #808080;
     font-family: 'Anek Latin', sans-serif;
@@ -6,15 +8,5 @@ body {
 .App {
     max-width: 1200px;
     margin: 0 auto;
+}
 
-}
-.widget-wrapper {
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
-    max-width: 500px;
-    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.06));
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-    background: #ffffff;
-}
