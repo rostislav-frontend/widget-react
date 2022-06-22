@@ -1,13 +1,14 @@
 import { format } from "date-fns"
 import { useEffect, useRef, useState } from "react"
 import styles from "./Widget.module.scss"
-import refreshIcon from "../icons/refresh.svg"
 import axios from "axios"
+import classNames from "classnames";
+import { RefreshIcons } from "../icons/icons"
 export default function Widget() {
 
     let timerRef = useRef<NodeJS.Timeout>()
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState<Boolean>(false)
 
     const [date, setDate] = useState(new Date());
 
@@ -53,16 +54,22 @@ export default function Widget() {
 
     return (
         <section className={styles.wrapper}>
-            <div className={styles.time}>
-                <div className={styles.timeTitle}><h1><b>Местное</b> время:</h1><img src={refreshIcon} alt="refresh" /></div>
+            <div className={styles.wrapperTime}>
+                <div className={styles.timeTitle}>
+                    <div><h1><b>Местное</b> время:</h1></div>
+                    <div className={classNames(styles["reload-button"], {
+                        [styles["reload-button-loading"]]: loading
+                    })} onClick={getCurrencies}><RefreshIcons /></div>
+                </div>
+
                 <div className={styles.timeDate}>{format(date, "HH:mm")}</div>
             </div>
-            <div className="widget-course">
-                <div>Курсы валют:</div>
+            <div className={styles.course}>
+                <div className={styles.courseTitle}>Курсы валют:</div>
                 {currencies ? (
                     <>
-                    <div>USD: {currencies.USD}</div>
-                    <div>EUR: {currencies.EUR}</div>
+                        <div>USD: {currencies.USD}</div>
+                        <div>EUR: {currencies.EUR}</div>
                     </>
                 ) : <div className={styles.currenciesError}>Не найдено</div>}
 

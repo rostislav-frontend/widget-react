@@ -1,3 +1,7 @@
+b {
+    color: #EA405C;
+}
+
 .wrapper {
     display: flex;
     margin: 0 auto;
@@ -11,22 +15,38 @@
 }
 
 
-.time {
+
+.wrapperTime {
     border-bottom: 2px solid #333333;
     padding-bottom: 10px;
+    font-weight: 300;
     .timeTitle {
         display: flex;
         justify-content: space-between;
-        font-size: 20px;
+        align-items: center;
         color:black;
         h1 {
             margin: 0;
         }
-        b {
-            color: #EA405C;
-        }
+
     }
     .timeDate {
         font-size: 50px;
     }
 }
+
+
+.course {
+    color: #333333;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    .courseTitle {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
